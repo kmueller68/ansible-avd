@@ -1071,6 +1071,26 @@
     Ethernet Interfaces
   </a>
   
+    <nav class="md-nav" aria-label="Ethernet Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ethernet-interfaces-summary" class="md-nav__link">
+    Ethernet Interfaces Summary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ethernet-interfaces-device-configuration" class="md-nav__link">
+    Ethernet Interfaces Device Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1085,12 +1105,52 @@
     Loopback Interfaces
   </a>
   
+    <nav class="md-nav" aria-label="Loopback Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loopback-interfaces-summary" class="md-nav__link">
+    Loopback Interfaces Summary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loopback-interfaces-device-configuration" class="md-nav__link">
+    Loopback Interfaces Device Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
   <a href="#vlan-interfaces" class="md-nav__link">
     VLAN Interfaces
   </a>
+  
+    <nav class="md-nav" aria-label="VLAN Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vlan-interfaces-summary" class="md-nav__link">
+    VLAN Interfaces Summary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlan-interfaces-device-configuration" class="md-nav__link">
+    VLAN Interfaces Device Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1193,6 +1253,13 @@
           <li class="md-nav__item">
   <a href="#router-isis-summary" class="md-nav__link">
     Router ISIS Summary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isis-interfaces-summary" class="md-nav__link">
+    ISIS interfaces Summary
   </a>
   
 </li>
@@ -1540,8 +1607,8 @@
 <td>Management1</td>
 <td>oob_management</td>
 <td>MGMT</td>
-<td>10.73.255.122/24</td>
-<td>10.73.255.2</td>
+<td>10.73.254.11/24</td>
+<td>10.73.254.253</td>
 </tr>
 </tbody>
 </table>
@@ -1571,7 +1638,7 @@
 interface Management1
    description oob_management
    vrf MGMT
-   ip address 10.73.255.122/24
+   ip address 10.73.254.11/24
 </code></pre></div>
 <h3 id="dns-domain">DNS Domain<a class="headerlink" href="#dns-domain" title="Permanent link">#</a></h3>
 <p>DNS domain not defined</p>
@@ -1650,13 +1717,215 @@ interface Management1
 <p>No VLANs defined</p>
 <h2 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">#</a></h2>
 <h3 id="ethernet-interfaces">Ethernet Interfaces<a class="headerlink" href="#ethernet-interfaces" title="Permanent link">#</a></h3>
-<p>No Ethernet interface defined</p>
+<h4 id="ethernet-interfaces-summary">Ethernet Interfaces Summary<a class="headerlink" href="#ethernet-interfaces-summary" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Description</th>
+<th>MTU</th>
+<th>Type</th>
+<th>Mode</th>
+<th>Allowed VLANs (Trunk)</th>
+<th>Trunk Group</th>
+<th>VRF</th>
+<th>IP Address</th>
+<th>Channel-Group ID</th>
+<th>Channel-Group Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ethernet1</td>
+<td>P2P_LINK_TO_EAPI-SPINE1_Ethernet1</td>
+<td>1500</td>
+<td>routed</td>
+<td>access</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>172.31.255.1/31</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Ethernet2</td>
+<td>P2P_LINK_TO_EAPI-SPINE2_Ethernet1</td>
+<td>1500</td>
+<td>routed</td>
+<td>access</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>172.31.255.3/31</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Ethernet3</td>
+<td>MLAG_PEER_EAPI-LEAF1B_Ethernet3</td>
+<td>*1500</td>
+<td>*switched</td>
+<td>*access</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>3</td>
+<td>active</td>
+</tr>
+</tbody>
+</table>
+<p>*Inherited from Port-Channel Interface</p>
+<h4 id="ethernet-interfaces-device-configuration">Ethernet Interfaces Device Configuration<a class="headerlink" href="#ethernet-interfaces-device-configuration" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>!
+interface Ethernet1
+   description P2P_LINK_TO_EAPI-SPINE1_Ethernet1
+   no switchport
+   ip address 172.31.255.1/31
+   isis enable EVPN_UNDERLAY
+   isis metric 50
+   isis network point-to-point
+!
+interface Ethernet2
+   description P2P_LINK_TO_EAPI-SPINE2_Ethernet1
+   no switchport
+   ip address 172.31.255.3/31
+   isis enable EVPN_UNDERLAY
+   isis metric 50
+   isis network point-to-point
+!
+interface Ethernet3
+   description MLAG_PEER_EAPI-LEAF1B_Ethernet3
+   channel-group 3 mode active
+</code></pre></div>
 <h3 id="port-channel-interfaces">Port-Channel Interfaces<a class="headerlink" href="#port-channel-interfaces" title="Permanent link">#</a></h3>
 <p>No Port-Channels defined</p>
 <h3 id="loopback-interfaces">Loopback Interfaces<a class="headerlink" href="#loopback-interfaces" title="Permanent link">#</a></h3>
-<p>No Loopback interfaces defined</p>
+<h4 id="loopback-interfaces-summary">Loopback Interfaces Summary<a class="headerlink" href="#loopback-interfaces-summary" title="Permanent link">#</a></h4>
+<p>IPv4</p>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Description</th>
+<th>VRF</th>
+<th>IP Address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Loopback0</td>
+<td>EVPN_Overlay_Peering</td>
+<td>Global Routing Table</td>
+<td>192.168.255.3/32</td>
+</tr>
+<tr>
+<td>Loopback1</td>
+<td>VTEP_VXLAN_Tunnel_Source</td>
+<td>Global Routing Table</td>
+<td>192.168.254.3/32</td>
+</tr>
+</tbody>
+</table>
+<p>IPv6</p>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Description</th>
+<th>VRF</th>
+<th>IPv6 Address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Loopback0</td>
+<td>EVPN_Overlay_Peering</td>
+<td>Global Routing Table</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Loopback1</td>
+<td>VTEP_VXLAN_Tunnel_Source</td>
+<td>Global Routing Table</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="loopback-interfaces-device-configuration">Loopback Interfaces Device Configuration<a class="headerlink" href="#loopback-interfaces-device-configuration" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>!
+interface Loopback0
+   description EVPN_Overlay_Peering
+   ip address 192.168.255.3/32
+   isis enable EVPN_UNDERLAY
+   isis passive
+!
+interface Loopback1
+   description VTEP_VXLAN_Tunnel_Source
+   ip address 192.168.254.3/32
+   isis enable EVPN_UNDERLAY
+   isis passive
+</code></pre></div>
 <h3 id="vlan-interfaces">VLAN Interfaces<a class="headerlink" href="#vlan-interfaces" title="Permanent link">#</a></h3>
-<p>No VLAN interfaces defined</p>
+<h4 id="vlan-interfaces-summary">VLAN Interfaces Summary<a class="headerlink" href="#vlan-interfaces-summary" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Description</th>
+<th>VRF</th>
+<th>IP Address</th>
+<th>IP Address Virtual</th>
+<th>IP Router Virtual Address (vARP)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vlan110</td>
+<td>PR01-DEMO</td>
+<td>TENANT_A_PROJECT01</td>
+<td>-</td>
+<td>10.1.10.254/24</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan4093</td>
+<td>MLAG_PEER_L3_PEERING</td>
+<td>Global Routing Table</td>
+<td>10.255.251.0/31</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan4094</td>
+<td>MLAG_PEER</td>
+<td>Global Routing Table</td>
+<td>10.255.252.0/31</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="vlan-interfaces-device-configuration">VLAN Interfaces Device Configuration<a class="headerlink" href="#vlan-interfaces-device-configuration" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>!
+interface Vlan110
+   description PR01-DEMO
+   vrf TENANT_A_PROJECT01
+   ip address virtual 10.1.10.254/24
+!
+interface Vlan4093
+   description MLAG_PEER_L3_PEERING
+   ip address 10.255.251.0/31
+   isis enable EVPN_UNDERLAY
+   isis metric 50
+   isis network point-to-point
+!
+interface Vlan4094
+   description MLAG_PEER
+   no autostate
+   ip address 10.255.252.0/31
+</code></pre></div>
 <h3 id="vxlan-interface">VXLAN Interface<a class="headerlink" href="#vxlan-interface" title="Permanent link">#</a></h3>
 <p>No VXLAN interface defined</p>
 <h2 id="routing">Routing<a class="headerlink" href="#routing" title="Permanent link">#</a></h2>
@@ -1724,6 +1993,49 @@ interface Management1
 <tr>
 <td>Address Family</td>
 <td>ipv4 unicast</td>
+</tr>
+</tbody>
+</table>
+<h4 id="isis-interfaces-summary">ISIS interfaces Summary<a class="headerlink" href="#isis-interfaces-summary" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>ISIS instance</th>
+<th>ISIS metric</th>
+<th>Interface mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ethernet1</td>
+<td>EVPN_UNDERLAY</td>
+<td>50</td>
+<td>point-to-point</td>
+</tr>
+<tr>
+<td>Ethernet2</td>
+<td>EVPN_UNDERLAY</td>
+<td>50</td>
+<td>point-to-point</td>
+</tr>
+<tr>
+<td>Vlan4093</td>
+<td>EVPN_UNDERLAY</td>
+<td>50</td>
+<td>point-to-point</td>
+</tr>
+<tr>
+<td>Loopback0</td>
+<td>EVPN_UNDERLAY</td>
+<td>-</td>
+<td>passive</td>
+</tr>
+<tr>
+<td>Loopback1</td>
+<td>EVPN_UNDERLAY</td>
+<td>-</td>
+<td>passive</td>
 </tr>
 </tbody>
 </table>

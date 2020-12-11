@@ -1672,50 +1672,56 @@ The variables should be applied to all devices in the fabric.</p>
 <p><strong>Variables and Options:</strong></p>
 <div class="highlight"><pre><span></span><code><span class="nt">l3leaf</span><span class="p">:</span>
 
-  <span class="c1"># L3 Leaf default variables, can be overridden when defined under &lt; node_group &gt;.</span>
+  <span class="c1"># All variables defined under `node_groups` dictionary can be defined under the defaults key will be inherited by all L3 leafs.</span>
+  <span class="c1"># The variables defined under a specific `node_group` will take precedence over defaults.</span>
   <span class="nt">defaults</span><span class="p">:</span>
 
-    <span class="c1"># Arista platform family. | Required</span>
-    <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Arista Platform Family &gt;</span>
-
-    <span class="c1"># Parent spine switches (list), corresponding to uplink_to_spine_interfaces and spine_interfaces | Required.</span>
-    <span class="nt">spines</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; spine_inventory_hostname &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; spine_inventory_hostname &gt;</span> <span class="p p-Indicator">]</span>
-
-    <span class="c1"># Uplink to spine interfaces (list), interface located on L3 Leaf,</span>
-    <span class="c1"># corresponding to spines and spine_interfaces | Required.</span>
-    <span class="nt">uplink_to_spine_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; ethernet_interface_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; ethernet_interface_2 &gt;</span> <span class="p p-Indicator">]</span>
-
-    <span class="c1"># Point-to-Point interface speed - will apply to L3 Leaf and Spine switches | Optional.</span>
-    <span class="nt">p2p_link_interface_speed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; interface_speed &gt;</span>
-
-    <span class="c1"># MLAG interfaces (list) | Required when MLAG leafs present in topology.</span>
-    <span class="nt">mlag_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; ethernet_interface_3 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; ethernet_interface_4 &gt;</span><span class="p p-Indicator">]</span>
-
-    <span class="c1"># Spanning tree mode (note - only mstp has been validated at this time) | Required.</span>
-    <span class="nt">spanning_tree_mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; mstp &gt;</span>
-
-    <span class="c1"># Spanning tree priority | Required.</span>
-    <span class="nt">spanning_tree_priority</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; spanning-tree priority &gt;</span>
-
-    <span class="c1"># Virtual router mac address for anycast gateway | Required.</span>
-    <span class="nt">virtual_router_mac_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; mac address &gt;</span>
-
-    <span class="c1"># Activate or deactivate IGMP snooping for all l3leaf devices | Optional default is true</span>
-    <span class="nt">igmp_snooping_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
-
-  <span class="c1"># The node groups are group of one or two nodes where specific variables can be defined related to the topology</span>
+  <span class="c1"># The node groups are group of one or multiple nodes where specific variables can be defined related to the topology</span>
   <span class="c1"># and allowed L3 and L2 network services.</span>
-  <span class="c1"># All variables defined under `defaults` dictionary can be defined under each node group to override it.</span>
   <span class="nt">node_groups</span><span class="p">:</span>
 
     <span class="c1"># node_group_1, will result in stand-alone leaf.</span>
     <span class="nt">&lt; node_group_1 &gt;</span><span class="p">:</span>
+
+      <span class="c1"># All variables defined under `defaults` will be inherited by the node group, if not specifically set inside it.</span>
+
+      <span class="c1"># Arista platform family. | Required</span>
+      <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Arista Platform Family &gt;</span>
+
+      <span class="c1"># Parent spine switches (list), corresponding to uplink_to_spine_interfaces and spine_interfaces | Required.</span>
+      <span class="nt">spines</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; spine_inventory_hostname &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; spine_inventory_hostname &gt;</span> <span class="p p-Indicator">]</span>
+
+      <span class="c1"># Uplink to spine interfaces (list), interface located on L3 Leaf,</span>
+      <span class="c1"># corresponding to spines and spine_interfaces | Required.</span>
+      <span class="nt">uplink_to_spine_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; ethernet_interface_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; ethernet_interface_2 &gt;</span> <span class="p p-Indicator">]</span>
+
+      <span class="c1"># Point-to-Point interface speed - will apply to L3 Leaf and Spine switches | Optional.</span>
+      <span class="nt">p2p_link_interface_speed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; interface_speed &gt;</span>
+
+      <span class="c1"># Enable / Disable auto MLAG, when two nodes are defined in node group.</span>
+      <span class="nt">mlag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false -&gt; default true &gt;</span>
+
+      <span class="c1"># MLAG interfaces (list) | Required when MLAG leafs present in topology.</span>
+      <span class="nt">mlag_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; ethernet_interface_3 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; ethernet_interface_4 &gt;</span><span class="p p-Indicator">]</span>
+
+      <span class="c1"># Spanning tree mode (note - only mstp has been validated at this time) | Required.</span>
+      <span class="nt">spanning_tree_mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; mstp &gt;</span>
+
+      <span class="c1"># Spanning tree priority | Required.</span>
+      <span class="nt">spanning_tree_priority</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; spanning-tree priority &gt;</span>
+
+      <span class="c1"># Virtual router mac address for anycast gateway | Required.</span>
+      <span class="nt">virtual_router_mac_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; mac address &gt;</span>
+
+      <span class="c1"># Activate or deactivate IGMP snooping for all l3leaf devices | Optional default is true</span>
+      <span class="nt">igmp_snooping_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
 
       <span class="c1"># L3 Leaf BGP AS. | Required.</span>
       <span class="nt">bgp_as</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; bgp_as &gt;</span>
 
       <span class="c1"># Filter L3 and L2 network services based on tenant and tags ( and operation filter )| Optional</span>
       <span class="c1"># If filter is not defined will default to all</span>
+      <span class="c1"># This variable can only be set under the node group.</span>
       <span class="nt">filter</span><span class="p">:</span>
         <span class="nt">tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tenant_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tenant_2 &gt; | default all</span> <span class="p p-Indicator">]</span>
         <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tag_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tag_2 &gt; | default -&gt; all</span> <span class="p p-Indicator">]</span><span class="err">]</span>
@@ -1723,8 +1729,9 @@ The variables should be applied to all devices in the fabric.</p>
       <span class="c1"># Activate or deactivate IGMP snooping for node groups devices</span>
       <span class="nt">igmp_snooping_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
 
-      <span class="c1"># Define one or two nodes - same name as inventory_hostname | Required</span>
-      <span class="c1"># When two nodes are defined, this will create an MLAG pair.</span>
+      <span class="c1"># The node name must be the same name as inventory_hostname | Required</span>
+      <span class="c1"># When two nodes are defined, this will automatically configure the nodes as an MLAG pair,</span>
+      <span class="c1"># unless the &quot;l3leaf.defaults.mlag:&quot; key is set to false.</span>
       <span class="nt">nodes</span><span class="p">:</span>
 
         <span class="c1"># First node</span>
@@ -1765,7 +1772,7 @@ The variables should be applied to all devices in the fabric.</p>
 
 <span class="nt">l3leaf</span><span class="p">:</span>
   <span class="nt">defaults</span><span class="p">:</span>
-    <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vEOS-LAB</span>
+    <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">7050X3</span>
     <span class="nt">bgp_as</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">65100</span>
     <span class="nt">spines</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">DC1-SPINE1</span><span class="p p-Indicator">,</span> <span class="nv">DC1-SPINE2</span> <span class="p p-Indicator">]</span>
     <span class="nt">uplink_to_spine_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Ethernet1</span><span class="p p-Indicator">,</span> <span class="nv">Ethernet2</span> <span class="p p-Indicator">]</span>
@@ -1800,6 +1807,8 @@ The variables should be applied to all devices in the fabric.</p>
           <span class="nt">spine_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Ethernet3</span><span class="p p-Indicator">,</span> <span class="nv">Ethernet3</span> <span class="p p-Indicator">]</span>
     <span class="nt">DC1_SVC3</span><span class="p">:</span>
       <span class="nt">bgp_as</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">65103</span>
+      <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">7280R</span>
+      <span class="nt">mlag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
       <span class="nt">filter</span><span class="p">:</span>
         <span class="nt">tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Tenant_A</span> <span class="p p-Indicator">]</span>
         <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">erp1</span> <span class="p p-Indicator">]</span>
@@ -1817,44 +1826,50 @@ The variables should be applied to all devices in the fabric.</p>
 <p><strong>Variables and Options:</strong></p>
 <div class="highlight"><pre><span></span><code><span class="nt">l2leaf</span><span class="p">:</span>
 
-  <span class="c1"># L2 Leaf default variables, can be overridden when defined under &lt; node_group &gt;.</span>
+  <span class="c1"># All variables defined under `node_groups` dictionary can be defined under the defaults key will be inherited by all L2 leafs.</span>
+  <span class="c1"># The variables defined under a specific `node_group` will take precedence over defaults.</span>
   <span class="nt">defaults</span><span class="p">:</span>
 
-    <span class="c1"># Arista platform family. | Required</span>
-    <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Arista Platform Family &gt;</span>
-
-    <span class="c1"># Parent L3 switches (list), corresponding to uplink_interfaces and l3leaf_interfaces | Required.</span>
-    <span class="nt">parent_l3leafs</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">DC1-LEAF2A</span><span class="p p-Indicator">,</span> <span class="nv">DC1-LEAF2B</span><span class="p p-Indicator">]</span>
-
-    <span class="c1"># Uplink interfaces (list), interface located on L2 Leaf,</span>
-    <span class="c1"># corresponding to parent_l3leafs and l3leaf_interfaces | Required.</span>
-    <span class="nt">uplink_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; ethernet_interface_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; ethernet_interface_2 &gt;</span> <span class="p p-Indicator">]</span>
-
-    <span class="c1"># Point-to-Point interface speed - will apply to L2 Leaf and L3 Leaf switches | Optional.</span>
-    <span class="nt">p2p_link_interface_speed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; interface_speed &gt;</span>
-
-    <span class="c1"># MLAG interfaces (list) | Required when MLAG leafs present in topology.</span>
-    <span class="nt">mlag_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; ethernet_interface_3 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; ethernet_interface_4 &gt;</span><span class="p p-Indicator">]</span>
-
-    <span class="c1"># Spanning tree mode (note - only mstp has been validated at this time) | Required.</span>
-    <span class="nt">spanning_tree_mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; mstp &gt;</span>
-
-    <span class="c1"># Spanning tree priority | Required.</span>
-    <span class="nt">spanning_tree_priority</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; spanning-tree priority &gt;</span>
-
-    <span class="c1"># Activate or deactivate IGMP snooping for all l2leaf devices | Optional default is true</span>
-    <span class="nt">igmp_snooping_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
-
-  <span class="c1"># The node groups are group of one or two nodes where specific variables can be defined related to the topology</span>
+  <span class="c1"># The node groups are group of one or multiple nodes where specific variables can be defined related to the topology</span>
   <span class="c1"># and allowed L3 and L2 network services.</span>
-  <span class="c1"># All variables defined under `defaults` dictionary can be defined under each node group to override it.</span>
   <span class="nt">node_groups</span><span class="p">:</span>
 
     <span class="c1"># node_group_1, will result in stand-alone leaf.</span>
     <span class="nt">&lt; node_group_1 &gt;</span><span class="p">:</span>
 
+      <span class="c1"># All variables defined under `defaults` will be inherited by the node group, if not specifically set inside it.</span>
+
+      <span class="c1"># Arista platform family. | Required</span>
+      <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Arista Platform Family &gt;</span>
+
+      <span class="c1"># Parent L3 switches (list), corresponding to uplink_interfaces and l3leaf_interfaces | Required.</span>
+      <span class="nt">parent_l3leafs</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">DC1-LEAF2A</span><span class="p p-Indicator">,</span> <span class="nv">DC1-LEAF2B</span><span class="p p-Indicator">]</span>
+
+      <span class="c1"># Uplink interfaces (list), interface located on L2 Leaf,</span>
+      <span class="c1"># corresponding to parent_l3leafs and l3leaf_interfaces | Required.</span>
+      <span class="nt">uplink_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; ethernet_interface_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; ethernet_interface_2 &gt;</span> <span class="p p-Indicator">]</span>
+
+      <span class="c1"># Point-to-Point interface speed - will apply to L2 Leaf and L3 Leaf switches | Optional.</span>
+      <span class="nt">p2p_link_interface_speed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; interface_speed &gt;</span>
+
+      <span class="c1"># Enable / Disable auto MLAG, when two nodes are defined in node group.</span>
+      <span class="nt">mlag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false -&gt; default true &gt;</span>
+
+      <span class="c1"># MLAG interfaces (list) | Required when MLAG leafs present in topology.</span>
+      <span class="nt">mlag_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; ethernet_interface_3 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; ethernet_interface_4 &gt;</span><span class="p p-Indicator">]</span>
+
+      <span class="c1"># Spanning tree mode (note - only mstp has been validated at this time) | Required.</span>
+      <span class="nt">spanning_tree_mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; mstp &gt;</span>
+
+      <span class="c1"># Spanning tree priority | Required.</span>
+      <span class="nt">spanning_tree_priority</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; spanning-tree priority &gt;</span>
+
+      <span class="c1"># Activate or deactivate IGMP snooping for all l2leaf devices | Optional default is true</span>
+      <span class="nt">igmp_snooping_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+
       <span class="c1"># Filter L3 and L2 network services based on tenant and tags - and filter | Optional</span>
       <span class="c1"># If filter is not defined will default to all</span>
+      <span class="c1"># This variable can only be set under the node group.</span>
       <span class="nt">filter</span><span class="p">:</span>
         <span class="nt">tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tenant_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tenant_2 &gt; | default all</span> <span class="p p-Indicator">]</span>
         <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tag_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tag_2 &gt; | default -&gt; all</span> <span class="p p-Indicator">]</span><span class="err">]</span>
@@ -1862,8 +1877,9 @@ The variables should be applied to all devices in the fabric.</p>
       <span class="c1"># Activate or deactivate IGMP snooping for node groups devices</span>
       <span class="nt">igmp_snooping_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
 
-      <span class="c1"># Define one or two nodes - same name as inventory_hostname.</span>
-      <span class="c1"># When two nodes are defined, this will create an MLAG pair.</span>
+      <span class="c1"># The node name must be the same name as inventory_hostname | Required</span>
+      <span class="c1"># When two nodes are defined, this will automatically configure the nodes as an MLAG pair,</span>
+      <span class="c1"># unless the &quot;l2leaf.defaults.mlag:&quot; key is set to false.</span>
       <span class="nt">nodes</span><span class="p">:</span>
 
         <span class="c1"># First node</span>
