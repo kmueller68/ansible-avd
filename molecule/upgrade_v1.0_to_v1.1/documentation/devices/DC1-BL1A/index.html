@@ -1293,6 +1293,26 @@
     Ethernet Interfaces Summary
   </a>
   
+    <nav class="md-nav" aria-label="Ethernet Interfaces Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#l2" class="md-nav__link">
+    L2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipv4_1" class="md-nav__link">
+    IPv4
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1319,6 +1339,19 @@
   <a href="#port-channel-interfaces-summary" class="md-nav__link">
     Port-Channel Interfaces Summary
   </a>
+  
+    <nav class="md-nav" aria-label="Port-Channel Interfaces Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#l2_1" class="md-nav__link">
+    L2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1351,7 +1384,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ipv4_1" class="md-nav__link">
+  <a href="#ipv4_2" class="md-nav__link">
     IPv4
   </a>
   
@@ -1393,6 +1426,19 @@
   <a href="#vlan-interfaces-summary" class="md-nav__link">
     VLAN Interfaces Summary
   </a>
+  
+    <nav class="md-nav" aria-label="VLAN Interfaces Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ipv4_3" class="md-nav__link">
+    IPv4
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2543,104 +2589,108 @@ vlan 4094
 <h2 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">#</a></h2>
 <h3 id="ethernet-interfaces">Ethernet Interfaces<a class="headerlink" href="#ethernet-interfaces" title="Permanent link">#</a></h3>
 <h4 id="ethernet-interfaces-summary">Ethernet Interfaces Summary<a class="headerlink" href="#ethernet-interfaces-summary" title="Permanent link">#</a></h4>
+<h5 id="l2">L2<a class="headerlink" href="#l2" title="Permanent link">#</a></h5>
 <table>
 <thead>
 <tr>
 <th>Interface</th>
 <th>Description</th>
-<th>MTU</th>
-<th>Type</th>
 <th>Mode</th>
-<th>Allowed VLANs (Trunk)</th>
+<th>VLANs</th>
+<th>Native VLAN</th>
 <th>Trunk Group</th>
-<th>VRF</th>
+<th>Channel-Group</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ethernet5</td>
+<td>MLAG_PEER_DC1-BL1B_Ethernet5</td>
+<td>*trunk</td>
+<td>*2-4094</td>
+<td>*-</td>
+<td>*[&lsquo;LEAF_PEER_L3&rsquo;, &lsquo;MLAG&rsquo;]</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Ethernet6</td>
+<td>MLAG_PEER_DC1-BL1B_Ethernet6</td>
+<td>*trunk</td>
+<td>*2-4094</td>
+<td>*-</td>
+<td>*[&lsquo;LEAF_PEER_L3&rsquo;, &lsquo;MLAG&rsquo;]</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p>*Inherited from Port-Channel Interface</p>
+<h5 id="ipv4_1">IPv4<a class="headerlink" href="#ipv4_1" title="Permanent link">#</a></h5>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Description</th>
+<th>Type</th>
+<th>Channel Group</th>
 <th>IP Address</th>
-<th>Channel-Group ID</th>
-<th>Channel-Group Type</th>
+<th>VRF</th>
+<th>MTU</th>
+<th>Shutdown</th>
+<th>ACL In</th>
+<th>ACL Out</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Ethernet1</td>
 <td>P2P_LINK_TO_DC1-SPINE1_Ethernet6</td>
-<td>1500</td>
 <td>routed</td>
-<td>access</td>
-<td>-</td>
-<td>-</td>
 <td>-</td>
 <td>172.31.255.41/31</td>
+<td>default</td>
+<td>1500</td>
+<td>-</td>
 <td>-</td>
 <td>-</td>
 </tr>
 <tr>
 <td>Ethernet2</td>
 <td>P2P_LINK_TO_DC1-SPINE2_Ethernet6</td>
-<td>1500</td>
 <td>routed</td>
-<td>access</td>
-<td>-</td>
-<td>-</td>
 <td>-</td>
 <td>172.31.255.43/31</td>
+<td>default</td>
+<td>1500</td>
+<td>-</td>
 <td>-</td>
 <td>-</td>
 </tr>
 <tr>
 <td>Ethernet3</td>
 <td>P2P_LINK_TO_DC1-SPINE3_Ethernet6</td>
-<td>1500</td>
 <td>routed</td>
-<td>access</td>
-<td>-</td>
-<td>-</td>
 <td>-</td>
 <td>172.31.255.45/31</td>
+<td>default</td>
+<td>1500</td>
+<td>-</td>
 <td>-</td>
 <td>-</td>
 </tr>
 <tr>
 <td>Ethernet4</td>
 <td>P2P_LINK_TO_DC1-SPINE4_Ethernet6</td>
-<td>1500</td>
 <td>routed</td>
-<td>access</td>
-<td>-</td>
-<td>-</td>
 <td>-</td>
 <td>172.31.255.47/31</td>
+<td>default</td>
+<td>1500</td>
 <td>-</td>
 <td>-</td>
-</tr>
-<tr>
-<td>Ethernet5</td>
-<td>MLAG_PEER_DC1-BL1B_Ethernet5</td>
-<td>*1500</td>
-<td>*switched</td>
-<td>*trunk</td>
-<td>*2-4094</td>
-<td>*LEAF_PEER_L3<br> *MLAG</td>
 <td>-</td>
-<td>-</td>
-<td>5</td>
-<td>active</td>
-</tr>
-<tr>
-<td>Ethernet6</td>
-<td>MLAG_PEER_DC1-BL1B_Ethernet6</td>
-<td>*1500</td>
-<td>*switched</td>
-<td>*trunk</td>
-<td>*2-4094</td>
-<td>*LEAF_PEER_L3<br> *MLAG</td>
-<td>-</td>
-<td>-</td>
-<td>5</td>
-<td>active</td>
 </tr>
 </tbody>
 </table>
-<p>*Inherited from Port-Channel Interface</p>
 <h4 id="ethernet-interfaces-device-configuration">Ethernet Interfaces Device Configuration<a class="headerlink" href="#ethernet-interfaces-device-configuration" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code>!
 interface Ethernet1
@@ -2673,9 +2723,39 @@ interface Ethernet6
 </code></pre></div>
 <h3 id="port-channel-interfaces">Port-Channel Interfaces<a class="headerlink" href="#port-channel-interfaces" title="Permanent link">#</a></h3>
 <h4 id="port-channel-interfaces-summary">Port-Channel Interfaces Summary<a class="headerlink" href="#port-channel-interfaces-summary" title="Permanent link">#</a></h4>
-<p>| Interface | Description | MTU | Type | Mode | Allowed VLANs (trunk) | Trunk Group | LACP Fallback Timeout | LACP Fallback Mode | MLAG ID | EVPN ESI | VRF | IP Address | IPv6 Address |
-| --------- | ----------- | &mdash; | ---- | ---- | --------------------- | ----------- | --------------------- ! ------------------ | ------- | -------- | &mdash; | ---------- | ------------ |
-| Port-Channel5 | MLAG_PEER_DC1-BL1B_Po5 | 1500 | switched | trunk | 2-4094 | LEAF_PEER_L3<br> MLAG | - | - | - | - | - | - | - |</p>
+<h5 id="l2_1">L2<a class="headerlink" href="#l2_1" title="Permanent link">#</a></h5>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Description</th>
+<th>Type</th>
+<th>Mode</th>
+<th>VLANs</th>
+<th>Native VLAN</th>
+<th>Trunk Group</th>
+<th>LACP Fallback Timeout</th>
+<th>LACP Fallback Mode</th>
+<th>MLAG ID</th>
+<th>EVPN ESI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Port-Channel5</td>
+<td>MLAG_PEER_DC1-BL1B_Po5</td>
+<td>switched</td>
+<td>access</td>
+<td>2-4094</td>
+<td>-</td>
+<td>[&lsquo;LEAF_PEER_L3&rsquo;, &lsquo;MLAG&rsquo;]</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
 <h4 id="port-channel-interfaces-device-configuration">Port-Channel Interfaces Device Configuration<a class="headerlink" href="#port-channel-interfaces-device-configuration" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code>!
 interface Port-Channel5
@@ -2687,7 +2767,7 @@ interface Port-Channel5
 </code></pre></div>
 <h3 id="loopback-interfaces">Loopback Interfaces<a class="headerlink" href="#loopback-interfaces" title="Permanent link">#</a></h3>
 <h4 id="loopback-interfaces-summary">Loopback Interfaces Summary<a class="headerlink" href="#loopback-interfaces-summary" title="Permanent link">#</a></h4>
-<h5 id="ipv4_1">IPv4<a class="headerlink" href="#ipv4_1" title="Permanent link">#</a></h5>
+<h5 id="ipv4_2">IPv4<a class="headerlink" href="#ipv4_2" title="Permanent link">#</a></h5>
 <table>
 <thead>
 <tr>
@@ -2755,9 +2835,8 @@ interface Loopback1
 <th>Interface</th>
 <th>Description</th>
 <th>VRF</th>
-<th>IP Address</th>
-<th>IP Address Virtual</th>
-<th>IP Router Virtual Address (vARP)</th>
+<th>MTU</th>
+<th>Shutdown</th>
 </tr>
 </thead>
 <tbody>
@@ -2766,30 +2845,26 @@ interface Loopback1
 <td>Tenant_A_WAN_Zone_1</td>
 <td>Tenant_A_WAN_Zone</td>
 <td>-</td>
-<td>10.1.40.1/24</td>
-<td>-</td>
+<td>false</td>
 </tr>
 <tr>
 <td>Vlan250</td>
 <td>Tenant_B_WAN_Zone_1</td>
 <td>Tenant_B_WAN_Zone</td>
 <td>-</td>
-<td>10.2.50.1/24</td>
-<td>-</td>
+<td>false</td>
 </tr>
 <tr>
 <td>Vlan350</td>
 <td>Tenant_C_WAN_Zone_1</td>
 <td>Tenant_C_WAN_Zone</td>
 <td>-</td>
-<td>10.3.50.1/24</td>
-<td>-</td>
+<td>false</td>
 </tr>
 <tr>
 <td>Vlan3013</td>
 <td>MLAG_PEER_L3_iBGP: vrf Tenant_A_WAN_Zone</td>
 <td>Tenant_A_WAN_Zone</td>
-<td>10.255.251.10/31</td>
 <td>-</td>
 <td>-</td>
 </tr>
@@ -2797,7 +2872,6 @@ interface Loopback1
 <td>Vlan3020</td>
 <td>MLAG_PEER_L3_iBGP: vrf Tenant_B_WAN_Zone</td>
 <td>Tenant_B_WAN_Zone</td>
-<td>10.255.251.10/31</td>
 <td>-</td>
 <td>-</td>
 </tr>
@@ -2805,7 +2879,6 @@ interface Loopback1
 <td>Vlan3030</td>
 <td>MLAG_PEER_L3_iBGP: vrf Tenant_C_WAN_Zone</td>
 <td>Tenant_C_WAN_Zone</td>
-<td>10.255.251.10/31</td>
 <td>-</td>
 <td>-</td>
 </tr>
@@ -2813,7 +2886,6 @@ interface Loopback1
 <td>Vlan4093</td>
 <td>MLAG_PEER_L3_PEERING</td>
 <td>default</td>
-<td>10.255.251.10/31</td>
 <td>-</td>
 <td>-</td>
 </tr>
@@ -2821,7 +2893,103 @@ interface Loopback1
 <td>Vlan4094</td>
 <td>MLAG_PEER</td>
 <td>default</td>
+<td>1500</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="ipv4_3">IPv4<a class="headerlink" href="#ipv4_3" title="Permanent link">#</a></h5>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>VRF</th>
+<th>IP Address</th>
+<th>IP Address Virtual</th>
+<th>IP Router Virtual Address</th>
+<th>VRRP</th>
+<th>ACL In</th>
+<th>ACL Out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vlan150</td>
+<td>Tenant_A_WAN_Zone</td>
+<td>-</td>
+<td>10.1.40.1/24</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan250</td>
+<td>Tenant_B_WAN_Zone</td>
+<td>-</td>
+<td>10.2.50.1/24</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan350</td>
+<td>Tenant_C_WAN_Zone</td>
+<td>-</td>
+<td>10.3.50.1/24</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan3013</td>
+<td>Tenant_A_WAN_Zone</td>
+<td>10.255.251.10/31</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan3020</td>
+<td>Tenant_B_WAN_Zone</td>
+<td>10.255.251.10/31</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan3030</td>
+<td>Tenant_C_WAN_Zone</td>
+<td>10.255.251.10/31</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan4093</td>
+<td>default</td>
+<td>10.255.251.10/31</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan4094</td>
+<td>default</td>
 <td>10.255.252.10/31</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 <td>-</td>
 <td>-</td>
 </tr>

@@ -1273,6 +1273,19 @@
     Ethernet Interfaces Summary
   </a>
   
+    <nav class="md-nav" aria-label="Ethernet Interfaces Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#l2" class="md-nav__link">
+    L2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1299,6 +1312,19 @@
   <a href="#port-channel-interfaces-summary" class="md-nav__link">
     Port-Channel Interfaces Summary
   </a>
+  
+    <nav class="md-nav" aria-label="Port-Channel Interfaces Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#l2_1" class="md-nav__link">
+    L2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2156,48 +2182,37 @@ vlan 131
 <h2 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">#</a></h2>
 <h3 id="ethernet-interfaces">Ethernet Interfaces<a class="headerlink" href="#ethernet-interfaces" title="Permanent link">#</a></h3>
 <h4 id="ethernet-interfaces-summary">Ethernet Interfaces Summary<a class="headerlink" href="#ethernet-interfaces-summary" title="Permanent link">#</a></h4>
+<h5 id="l2">L2<a class="headerlink" href="#l2" title="Permanent link">#</a></h5>
 <table>
 <thead>
 <tr>
 <th>Interface</th>
 <th>Description</th>
-<th>MTU</th>
-<th>Type</th>
 <th>Mode</th>
-<th>Allowed VLANs (Trunk)</th>
+<th>VLANs</th>
+<th>Native VLAN</th>
 <th>Trunk Group</th>
-<th>VRF</th>
-<th>IP Address</th>
-<th>Channel-Group ID</th>
-<th>Channel-Group Type</th>
+<th>Channel-Group</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Ethernet1</td>
 <td>DC1-LEAF2A_Ethernet7</td>
-<td>*1500</td>
-<td>*switched</td>
 <td>*trunk</td>
 <td>*110-111,120-121,130-131</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td>*-</td>
+<td>*-</td>
 <td>1</td>
-<td>active</td>
 </tr>
 <tr>
 <td>Ethernet2</td>
 <td>DC1-LEAF2B_Ethernet7</td>
-<td>*1500</td>
-<td>*switched</td>
 <td>*trunk</td>
 <td>*110-111,120-121,130-131</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td>*-</td>
+<td>*-</td>
 <td>1</td>
-<td>active</td>
 </tr>
 </tbody>
 </table>
@@ -2214,9 +2229,39 @@ interface Ethernet2
 </code></pre></div>
 <h3 id="port-channel-interfaces">Port-Channel Interfaces<a class="headerlink" href="#port-channel-interfaces" title="Permanent link">#</a></h3>
 <h4 id="port-channel-interfaces-summary">Port-Channel Interfaces Summary<a class="headerlink" href="#port-channel-interfaces-summary" title="Permanent link">#</a></h4>
-<p>| Interface | Description | MTU | Type | Mode | Allowed VLANs (trunk) | Trunk Group | LACP Fallback Timeout | LACP Fallback Mode | MLAG ID | EVPN ESI | VRF | IP Address | IPv6 Address |
-| --------- | ----------- | &mdash; | ---- | ---- | --------------------- | ----------- | --------------------- ! ------------------ | ------- | -------- | &mdash; | ---------- | ------------ |
-| Port-Channel1 | DC1-LEAF2A_Po7 | 1500 | switched | trunk | 110-111,120-121,130-131 | - | - | - | 1 | - | - | - | - |</p>
+<h5 id="l2_1">L2<a class="headerlink" href="#l2_1" title="Permanent link">#</a></h5>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Description</th>
+<th>Type</th>
+<th>Mode</th>
+<th>VLANs</th>
+<th>Native VLAN</th>
+<th>Trunk Group</th>
+<th>LACP Fallback Timeout</th>
+<th>LACP Fallback Mode</th>
+<th>MLAG ID</th>
+<th>EVPN ESI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Port-Channel1</td>
+<td>DC1-LEAF2A_Po7</td>
+<td>switched</td>
+<td>access</td>
+<td>110-111,120-121,130-131</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>1</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
 <h4 id="port-channel-interfaces-device-configuration">Port-Channel Interfaces Device Configuration<a class="headerlink" href="#port-channel-interfaces-device-configuration" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code>!
 interface Port-Channel1

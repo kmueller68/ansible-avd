@@ -1127,6 +1127,26 @@
     VLAN Interfaces Summary
   </a>
   
+    <nav class="md-nav" aria-label="VLAN Interfaces Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ipv4_1" class="md-nav__link">
+    IPv4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipv6_1" class="md-nav__link">
+    IPv6
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1687,9 +1707,8 @@ interface Management1
 <th>Interface</th>
 <th>Description</th>
 <th>VRF</th>
-<th>IP Address</th>
-<th>IP Address Virtual</th>
-<th>IP Router Virtual Address (vARP)</th>
+<th>MTU</th>
+<th>Shutdown</th>
 </tr>
 </thead>
 <tbody>
@@ -1698,54 +1717,47 @@ interface Management1
 <td>SVI Description</td>
 <td>default</td>
 <td>-</td>
-<td>10.10.24.1/24</td>
-<td>-</td>
+<td>false</td>
 </tr>
 <tr>
 <td>Vlan41</td>
 <td>SVI Description</td>
 <td>default</td>
 <td>-</td>
-<td>10.10.41.1/24</td>
-<td>-</td>
+<td>false</td>
 </tr>
 <tr>
 <td>Vlan42</td>
 <td>SVI Description</td>
 <td>default</td>
 <td>-</td>
-<td>10.10.42.1/24</td>
-<td>-</td>
+<td>false</td>
 </tr>
 <tr>
 <td>Vlan75</td>
 <td>SVI Description</td>
 <td>default</td>
 <td>-</td>
-<td>10.10.75.1/24</td>
-<td>-</td>
+<td>false</td>
 </tr>
 <tr>
 <td>Vlan83</td>
 <td>SVI Description</td>
 <td>default</td>
 <td>-</td>
-<td>10.10.83.1/24</td>
-<td>-</td>
+<td>false</td>
 </tr>
 <tr>
 <td>Vlan84</td>
 <td>SVI Description</td>
 <td>default</td>
 <td>-</td>
-<td>10.10.84.1/24</td>
 <td>-</td>
 </tr>
 <tr>
 <td>Vlan85</td>
 <td>SVI Description</td>
 <td>default</td>
-<td>10.10.84.1/24</td>
 <td>-</td>
 <td>-</td>
 </tr>
@@ -1753,56 +1765,49 @@ interface Management1
 <td>Vlan87</td>
 <td>SVI Description</td>
 <td>default</td>
-<td>10.10.87.1/24</td>
 <td>-</td>
-<td>-</td>
+<td>true</td>
 </tr>
 <tr>
 <td>Vlan88</td>
 <td>SVI Description</td>
 <td>default</td>
 <td>-</td>
-<td>10.10.87.1/23</td>
-<td>-</td>
+<td>true</td>
 </tr>
 <tr>
 <td>Vlan89</td>
 <td>SVI Description</td>
 <td>default</td>
 <td>-</td>
-<td>10.10.144.3/20</td>
-<td>-</td>
+<td>false</td>
 </tr>
 <tr>
 <td>Vlan501</td>
 <td>SVI Description</td>
 <td>default</td>
-<td>10.50.26.29/27</td>
 <td>-</td>
-<td>-</td>
+<td>false</td>
 </tr>
 <tr>
 <td>Vlan1001</td>
 <td>SVI Description</td>
 <td>Tenant_A</td>
 <td>-</td>
-<td>10.1.1.1/24</td>
-<td>-</td>
+<td>false</td>
 </tr>
 <tr>
 <td>Vlan1002</td>
 <td>SVI Description</td>
 <td>Tenant_A</td>
 <td>-</td>
-<td>10.1.2.1/24</td>
-<td>-</td>
+<td>false</td>
 </tr>
 <tr>
 <td>Vlan2001</td>
 <td>SVI Description</td>
 <td>Tenant_B</td>
 <td>-</td>
-<td>10.2.1.1/24</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1810,19 +1815,203 @@ interface Management1
 <td>SVI Description</td>
 <td>Tenant_B</td>
 <td>-</td>
-<td>10.2.2.1/24</td>
 <td>-</td>
 </tr>
 <tr>
 <td>Vlan4094</td>
 <td>SVI Description</td>
 <td>default</td>
+<td>9214</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h5 id="ipv4_1">IPv4<a class="headerlink" href="#ipv4_1" title="Permanent link">#</a></h5>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>VRF</th>
+<th>IP Address</th>
+<th>IP Address Virtual</th>
+<th>IP Router Virtual Address</th>
+<th>VRRP</th>
+<th>ACL In</th>
+<th>ACL Out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vlan24</td>
+<td>default</td>
+<td>-</td>
+<td>10.10.24.1/24</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan41</td>
+<td>default</td>
+<td>-</td>
+<td>10.10.41.1/24</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan42</td>
+<td>default</td>
+<td>-</td>
+<td>10.10.42.1/24</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan75</td>
+<td>default</td>
+<td>-</td>
+<td>10.10.75.1/24</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan83</td>
+<td>default</td>
+<td>-</td>
+<td>10.10.83.1/24</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan84</td>
+<td>default</td>
+<td>-</td>
+<td>10.10.84.1/24</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan85</td>
+<td>default</td>
+<td>10.10.84.1/24</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan87</td>
+<td>default</td>
+<td>10.10.87.1/24</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>ACL_IN</td>
+<td>ACL_OUT</td>
+</tr>
+<tr>
+<td>Vlan88</td>
+<td>default</td>
+<td>-</td>
+<td>10.10.87.1/23</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan89</td>
+<td>default</td>
+<td>-</td>
+<td>10.10.144.3/20</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan501</td>
+<td>default</td>
+<td>10.50.26.29/27</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan1001</td>
+<td>Tenant_A</td>
+<td>-</td>
+<td>10.1.1.1/24</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan1002</td>
+<td>Tenant_A</td>
+<td>-</td>
+<td>10.1.2.1/24</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan2001</td>
+<td>Tenant_B</td>
+<td>-</td>
+<td>10.2.1.1/24</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan2002</td>
+<td>Tenant_B</td>
+<td>-</td>
+<td>10.2.2.1/24</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vlan4094</td>
+<td>default</td>
 <td>169.254.252.0/31</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 <td>-</td>
 <td>-</td>
 </tr>
 </tbody>
 </table>
+<h5 id="ipv6_1">IPv6<a class="headerlink" href="#ipv6_1" title="Permanent link">#</a></h5>
+<p>| Interface | VRF | IPv6 Address | Virtual Router Address | VRRP | ND RA Disabled | Managed Config Flag | IPv6 ACL In | IPv6 ACL Out |
+| --------- | &mdash; | ------------ | ----------------------- | &mdash; | -------------- | ----------- | --------- | ----------- | ------------ |
+| Vlan24 |  default  |  1b11:3a00:22b0:6::15/64  |  1b11:3a00:22b0:6::1  |  -  |  -  |  true  |  -  |  -  |
+| Vlan75 |  default  |  1b11:3a00:22b0:1000::15/64  |  1b11:3a00:22b0:1000::1  |  -  |  -  |  true  |  -  |  -  |
+| Vlan89 |  default  |  1b11:3a00:22b0:5200::15/64  |  1b11:3a00:22b0:5200::3  |  -  |  -  |  true  |  -  |  -  |
+| Vlan501 |  default  |  1b11:3a00:22b0:0088::207/127  |  -  |  -  |  true  |  -  |  -  |  -  |
+| Vlan1001 |  Tenant_A  |  a1::1/64  |  -  |  -  |  -  |  true  |  -  |  -  |
+| Vlan1002 |  Tenant_A  |  a2::1/64  |  -  |  -  |  true  |  true  |  -  |  -  |</p>
 <h4 id="vlan-interfaces-device-configuration">VLAN Interfaces Device Configuration<a class="headerlink" href="#vlan-interfaces-device-configuration" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code>!
 interface Vlan24
