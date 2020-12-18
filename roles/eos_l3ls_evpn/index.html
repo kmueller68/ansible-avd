@@ -1391,6 +1391,17 @@
 <li><a href="#additional-variables-required-for-super-spine-deployment">Additional Variables Required For Super Spine Deployment</a></li>
 </ul>
 </li>
+<li><a href="#role-enchancements-for-dedicated-overlay-controllers">Role Enchancements for dedicated Overlay Controllers</a><ul>
+<li><a href="#inventory-structure-1">Inventory Structure</a></li>
+<li><a href="#additional-variables-required-for-overlay-controllers-deployment">Additional Variables Required For Overlay Controllers Deployment</a></li>
+</ul>
+</li>
+<li><a href="#role-enhancements-for-flexible-evpn-overlay-peering-design">Role Enhancements for Flexible EVPN Overlay peering design</a><ul>
+<li><a href="#inventory-structure-2">Inventory Structure</a></li>
+<li><a href="#additional-variables-for-flexible-evpn-overlay-peerings">Additional Variables For Flexible EVPN Overlay peerings</a></li>
+</ul>
+</li>
+<li><a href="#custom-eos-structured-configuration">Custom EOS Structured Configuration</a></li>
 <li><a href="#license">License</a></li>
 </ul>
 </li>
@@ -1484,6 +1495,7 @@ Default values, are stored in the role defaults <a href="defaults/main.yml">main
 <span class="nt">terminattr_ingestgrpcurl_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; port_number | default -&gt; 9910 &gt;</span>
 <span class="nt">terminattr_smashexcludes</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">smash</span><span class="nv"> </span><span class="s">excludes</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default</span><span class="nv"> </span><span class="s">-&gt;</span><span class="nv"> </span><span class="s">ale,flexCounter,hardware,kni,pulse,strata</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
 <span class="nt">terminattr_ingestexclude</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">ingest</span><span class="nv"> </span><span class="s">excludes</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default</span><span class="nv"> </span><span class="s">-&gt;</span><span class="nv"> </span><span class="s">/Sysdb/cell/1/agent,/Sysdb/cell/2/agent</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
+<span class="nt">terminattr_noaaa</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">boolean</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default</span><span class="nv"> </span><span class="s">-&gt;</span><span class="nv"> </span><span class="s">false</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
 
 
 <span class="c1"># Management interface configuration | Required</span>
