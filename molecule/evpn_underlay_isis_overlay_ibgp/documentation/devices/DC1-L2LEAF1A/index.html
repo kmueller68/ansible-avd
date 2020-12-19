@@ -2017,7 +2017,7 @@ username cvpadmin privilege 15 role network-admin secret sha512 $6$rZKcbIZ7iWGAW
 <th>Ingest Exclude</th>
 <th>Ingest VRF</th>
 <th>NTP VRF</th>
-<th>No AAA</th>
+<th>AAA Disabled</th>
 </tr>
 </thead>
 <tbody>
@@ -2036,7 +2036,7 @@ username cvpadmin privilege 15 role network-admin secret sha512 $6$rZKcbIZ7iWGAW
 <h4 id="terminattr-daemon-device-configuration">TerminAttr Daemon Device Configuration<a class="headerlink" href="#terminattr-daemon-device-configuration" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code>!
 daemon TerminAttr
-   exec /usr/bin/TerminAttr -ingestgrpcurl=192.168.200.11:9910 -cvcompression=gzip -ingestauth=key,telarista -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent -ingestvrf=MGMT -noaaa -taillogs
+   exec /usr/bin/TerminAttr -ingestgrpcurl=192.168.200.11:9910 -cvcompression=gzip -ingestauth=key,telarista -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent -ingestvrf=MGMT -disableaaa -taillogs
    no shutdown
 </code></pre></div>
 <h3 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">#</a></h3>
