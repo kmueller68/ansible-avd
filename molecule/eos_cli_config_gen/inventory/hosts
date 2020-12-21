@@ -2,9 +2,11 @@
 ; ls -l | gawk -F ' ' '{print $9}'| gawk -F '.' '{print $1}'
 aaa
 acl
+arp
 base
 dns-ntp
 ethernet-interfaces
+igmp-snooping
 logging-minimal
 logging
 loopbacks-interfaces
