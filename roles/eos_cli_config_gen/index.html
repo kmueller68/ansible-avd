@@ -605,8 +605,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#service-routing-protocols-model" class="md-nav__link">
-    Service Routing Protocols Model
+  <a href="#errdisable" class="md-nav__link">
+    Errdisable
   </a>
   
 </li>
@@ -1517,8 +1517,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#service-routing-protocols-model" class="md-nav__link">
-    Service Routing Protocols Model
+  <a href="#errdisable" class="md-nav__link">
+    Errdisable
   </a>
   
 </li>
@@ -2233,8 +2233,43 @@
 <div class="highlight"><pre><span></span><code><span class="nt">load_interval</span><span class="p">:</span>
   <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; seconds &gt;</span>
 </code></pre></div>
-<h4 id="service-routing-protocols-model">Service Routing Protocols Model<a class="headerlink" href="#service-routing-protocols-model" title="Permanent link">#</a></h4>
-<div class="highlight"><pre><span></span><code><span class="nt">service_routing_protocols_model</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; multi-agent | ribd &gt;</span>
+<h4 id="errdisable">Errdisable<a class="headerlink" href="#errdisable" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">errdisable</span><span class="p">:</span>
+  <span class="nt">detect</span><span class="p">:</span>
+    <span class="nt">causes</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">acl</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">arp-inspection</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">dot1x</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">link-change</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">tapagg</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">xcvr-misconfigured</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">xcvr-overheat</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">xcvr-power-unsupported</span>
+  <span class="nt">recovery</span><span class="p">:</span>
+    <span class="nt">causes</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">arp-inspection</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">bpduguard</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">dot1x</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">hitless-reload-down</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">lacp-rate-limit</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">link-flap</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">no-internal-vlan</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">portchannelguard</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">portsec</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">speed-misconfigured</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">tapagg</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">uplink-failure-detection</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">xcvr-misconfigured</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">xcvr-overheat</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">xcvr-power-unsupported</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">xcvr-unsupported</span>
+    <span class="nt">interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; seconds | default = 300 &gt;</span>
+
+
+<span class="c1">### Service Routing Protocols Model</span>
+
+<span class="err">```</span><span class="l l-Scalar l-Scalar-Plain">yaml</span>
+<span class="nt">service_routing_protocols_model</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; multi-agent | ribd &gt;</span>
 </code></pre></div>
 <h4 id="queue-monitor-length">Queue Monitor Length<a class="headerlink" href="#queue-monitor-length" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nt">queue_monitor_length</span><span class="p">:</span>
